@@ -1,5 +1,36 @@
 import java.util.List;
 
+class Faculty {
+	List<Student> students;
+	String imeFax;
+	
+	
+	//Constructor args
+	public Faculty(List<Student> students, String imeFax) {
+		this.students = students;
+		this.imeFax = imeFax;
+	}
+	
+	public void removeStudent(Student s) {
+		for (Student student : students) {
+			if (student.equals(s))
+				students.remove(s)
+		}
+	}
+	
+	public double prosekOcenkaStudenti(List<Student> students) {
+		int sum = 0;
+		for (Student s : students) {
+			//prosek na ocenki na eden student
+			sum += s.getAverage();
+		}
+		
+		//prosek na site studenti na cel fax
+		return (double)sum/students.size();
+	}
+}
+
+
 class Student {
 	String index;
 	String firstName;
